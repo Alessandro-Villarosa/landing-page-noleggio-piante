@@ -1,0 +1,317 @@
+<!DOCTYPE html>
+<html lang="it">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- SEO: Meta Title e Description ottimizzati per il noleggio B2B/B2C -->
+    <title>Noleggio Piante per Eventi e Uffici | Eleva i Tuoi Spazi in Modo Sostenibile</title>
+    <meta name="description"
+        content="Noleggio di piante a breve e lungo termine per uffici, eventi e allestimenti. Soluzioni green flessibili, economiche e senza l'impegno della cura. Richiedi un preventivo gratuito!">
+    <meta name="keywords"
+        content="noleggio piante, piante per eventi, piante per uffici, allestimenti floreali, sostenibilità, fioristi, green business">
+
+    <!-- Precaricamento Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Configurazione per utilizzare il font Inter e colori personalizzati -->
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap');
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #f4f8f4;
+            /* Leggero sfondo verde-grigio per un tocco naturale */
+        }
+    </style>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'primary-green': '#10b981', /* Smeraldo chiaro - colore principale */
+                        'secondary-dark': '#0f483c', /* Verde scuro per testo importante */
+                        'accent-yellow': '#facc15', /* Giallo acceso per CTA */
+                    },
+                }
+            }
+        }
+
+        // Funzione di gestione del submit
+        function handleSubmit(event) {
+            event.preventDefault();
+            const form = event.target;
+            const name = form.elements.name.value;
+            const email = form.elements.email.value;
+            const plant = form.elements.plant_preference.value;
+
+            const messageBox = document.getElementById('success-message');
+            messageBox.textContent = `Grazie, ${name}! Abbiamo ricevuto la tua richiesta per "${plant}". Ti contatteremo a breve all'indirizzo ${email}.`;
+            messageBox.classList.remove('hidden');
+            form.reset();
+
+            // Nascondi il messaggio dopo 5 secondi
+            setTimeout(() => {
+                messageBox.classList.add('hidden');
+            }, 5000);
+        }
+    </script>
+</head>
+
+<body class="text-secondary-dark antialiased">
+
+    <!-- Struttura principale della Landing Page -->
+    <div class="max-w-7xl mx-auto">
+
+        <!-- Header/Proposta di Valore (Above the Fold) -->
+        <header class="pt-10 pb-16 md:pt-20 md:pb-32 bg-white shadow-lg rounded-b-3xl">
+            <div class="container mx-auto px-6 lg:px-8">
+                <!-- Logica Tecnica: Tag H1 per il SEO e layout fluido -->
+                <h1 class="text-4xl sm:text-5xl lg:text-6xl font-extrabold text-secondary-dark mb-4 leading-tight">
+                    Trasforma il Tuo Spazio. <span class="text-primary-green">Noleggia le Piante Perfette</span>.
+                </h1>
+                <p class="text-xl sm:text-2xl text-gray-600 mb-8 max-w-3xl">
+                    La soluzione **flessibile e sostenibile** per eventi, uffici e set fotografici. Eleganza verde senza
+                    costi fissi o impegni di manutenzione.
+                </p>
+
+                <!-- CTA Iniziale (Visibilità Immediata) -->
+                <a href="#contact-form"
+                    class="inline-block px-10 py-4 bg-accent-yellow text-secondary-dark font-bold text-lg rounded-xl hover:bg-yellow-400 transition duration-300 shadow-xl transform hover:scale-105">
+                    Richiedi il Tuo Preventivo Gratuito
+                </a>
+
+                <!-- Spazio per Immagine Hero -->
+                <div class="mt-12">
+                    <div
+                        class="bg-gray-200 rounded-2xl w-full h-64 md:h-96 flex items-center justify-center text-gray-500 border-4 border-primary-green border-dashed">
+                    </div>
+                </div>
+            </div>
+        </header>
+
+        <!-- Sezione Vantaggi Chiave (Sotto la piega - Affronta le barriere Millennial: Costo e Durata) -->
+        <section class="py-16 md:py-24 px-6 lg:px-8">
+            <!-- Logica Tecnica: H2 per il SEO, uso di Grid per il responsive design -->
+            <h2 class="text-3xl sm:text-4xl font-bold text-center mb-12 text-secondary-dark" id="vantaggi">
+                Perché il Noleggio Piante è la Tua Scelta Green Intelligente
+            </h2>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-10">
+
+                <!-- Vantaggio 1: Flessibilità (Affronta la Durata) -->
+                <div
+                    class="bg-white p-8 rounded-xl shadow-lg border-t-4 border-primary-green hover:shadow-xl transition duration-300">
+                    <div class="text-primary-green mb-4">
+                        <svg class="w-10 h-10" fill="none" stroke="currentColor" viewBox="0 0 24 24"
+                            xmlns="http://www.w3.org/2000/svg">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z">
+                            </path>
+                        </svg>
+                    </div>
+                    <h3 class="text-xl font-bold mb-3 text-secondary-dark">Massima Flessibilità di Tempo</h3>
+                    <p class="text-gray-600">Noleggia per un singolo evento (un giorno) o un allestimento aziendale a
+                        lungo termine (mesi). **Nessun impegno a vita.** Cambi idea? Cambi pianta! È la soluzione ideale
+                        per chi cerca un allestimento dinamico e sempre fresco, superando il problema della "breve
+                        durata" dei fiori recisi.</p>
+                </div>
+
+                <!-- Vantaggio 2: Risparmio e Convenienza (Affronta il Prezzo) -->
+                <div
+                    class="bg-white p-8 rounded-xl shadow-lg border-t-4 border-primary-green hover:shadow-xl transition duration-300">
+                    <div class="text-primary-green mb-4">
+                        <svg class="w-10 h-10" fill="none" stroke="currentColor" viewBox="0 0 24 24"
+                            xmlns="http://www.w3.org/2000/svg">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8V9m0 3v3m0 3h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z">
+                            </path>
+                        </svg>
+                    </div>
+                    <h3 class="text-xl font-bold mb-3 text-secondary-dark">Costi Contenuti e Zero Manutenzione</h3>
+                    <p class="text-gray-600">Evita l'investimento iniziale e i costi di sostituzione. Il noleggio è una
+                        spesa operativa chiara. Ci occupiamo noi del trasporto, dell'allestimento e della manutenzione
+                        (o sostituzione) se necessario, garantendoti un look perfetto **senza sforzo né costi
+                        nascosti.**</p>
+                </div>
+
+                <!-- Vantaggio 3: Sostenibilità (Appello ai valori Millennial) -->
+                <div
+                    class="bg-white p-8 rounded-xl shadow-lg border-t-4 border-primary-green hover:shadow-xl transition duration-300">
+                    <div class="text-primary-green mb-4">
+                        <svg class="w-10 h-10" fill="none" stroke="currentColor" viewBox="0 0 24 24"
+                            xmlns="http://www.w3.org/2000/svg">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M5 3v4M3 5h4M6 17v4m-2-2h4m5-16l2.002 2.002 1.412-1.412M12 18h.01M5.998 9.002l2.002 2.002 1.412-1.412m-6.412 1.412c.76-.76 1.76-1.14 2.828-1.14h.004a4 4 0 014 4v.004c0 1.068-.38 2.068-1.14 2.828l-2.828 2.828a4 4 0 01-5.656 0 4 4 0 010-5.656l2.828-2.828z">
+                            </path>
+                        </svg>
+                    </div>
+                    <h3 class="text-xl font-bold mb-3 text-secondary-dark">Impatto Ambientale Ridotto</h3>
+                    <p class="text-gray-600">Scegliere il noleggio supporta l'economia circolare. Le piante ritornano ai
+                        nostri fioristi partner per essere ricondizionate o riutilizzate, riducendo gli sprechi e
+                        l'impronta di carbonio associata alla logistica dei prodotti "usa e getta". **Azienda Green,
+                        Immagine Green.**</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Sezione Catalogo e Processo (Fornisce trasparenza) -->
+        <section class="py-16 md:py-24 px-6 lg:px-8 bg-white rounded-3xl shadow-lg">
+            <!-- Logica Tecnica: Uso di un layout a due colonne (flessibile/immagine) -->
+            <h2 class="text-3xl sm:text-4xl font-bold text-center mb-12 text-secondary-dark" id="catalogo">
+                Come Funziona: Il Nostro Processo Semplice
+            </h2>
+
+            <div class="flex flex-col lg:flex-row items-center justify-between gap-12">
+                <div class="lg:w-1/2 space-y-8">
+
+                    <div class="flex items-start">
+                        <span
+                            class="text-2xl font-extrabold bg-primary-green text-white rounded-full h-10 w-10 flex items-center justify-center mr-4 flex-shrink-0">1</span>
+                        <div>
+                            <h3 class="text-xl font-bold text-secondary-dark mb-1">Esplora il Catalogo e Richiedi</h3>
+                            <p class="text-gray-600">Sfoglia le nostre varietà. Scegli le piante ideali per il tuo
+                                spazio (interni, esterni, grandi dimensioni). **Compila il form** qui sotto indicando le
+                                tue preferenze.</p>
+                        </div>
+                    </div>
+
+                    <div class="flex items-start">
+                        <span
+                            class="text-2xl font-extrabold bg-primary-green text-white rounded-full h-10 w-10 flex items-center justify-center mr-4 flex-shrink-0">2</span>
+                        <div>
+                            <h3 class="text-xl font-bold text-secondary-dark mb-1">Allestimento e Consegna</h3>
+                            <p class="text-gray-600">Il nostro fiorista partner locale si occuperà della consegna
+                                puntuale, dell'allestimento professionale e, se richiesto, dei vasi decorativi.</p>
+                        </div>
+                    </div>
+
+                    <div class="flex items-start">
+                        <span
+                            class="text-2xl font-extrabold bg-primary-green text-white rounded-full h-10 w-10 flex items-center justify-center mr-4 flex-shrink-0">3</span>
+                        <div>
+                            <h3 class="text-xl font-bold text-secondary-dark mb-1">Ritiro o Sostituzione</h3>
+                            <p class="text-gray-600">Alla fine del periodo concordato, ritiriamo noi le piante o le
+                                sostituiamo con nuove varietà, mantendendo il tuo spazio sempre vitale. **Facile e
+                                trasparente.**</p>
+                        </div>
+                    </div>
+
+                    <!-- Spazio per Immagine di Testimonianza -->
+                    <div
+                        class="bg-gray-200 rounded-lg w-full h-48 flex items-center justify-center text-gray-500 mt-8 border-2 border-gray-300">
+                    </div>
+                </div>
+
+                <!-- Spazio per Immagine Processo/Catalogo -->
+                <div class="lg:w-1/2">
+                    <div
+                        class="bg-gray-200 rounded-2xl w-full h-80 md:h-96 flex items-center justify-center text-gray-500 border-4 border-primary-green border-dashed">
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Sezione Testimonianze/Recensioni (Fattore Critico per i Millennial) -->
+        <section class="py-16 md:py-24 px-6 lg:px-8">
+            <!-- Logica Tecnica: Tag H2 per il SEO, citazioni accessibili con `blockquote` -->
+            <h2 class="text-3xl sm:text-4xl font-bold text-center mb-12 text-secondary-dark" id="recensioni">
+                Dicono di Noi: L'Esperienza Green dei Nostri Clienti
+            </h2>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+
+                <blockquote class="bg-white p-8 rounded-xl shadow-lg border-l-4 border-accent-yellow">
+                    <p class="italic text-gray-700 mb-4">"Dovevamo allestire una fiera in pochi giorni e cercavamo
+                        qualcosa di impatto ma sostenibile. Il servizio è stato impeccabile: consegna puntuale, piante
+                        stupende e un team di fioristi davvero professionale. Niente più stress per la manutenzione!
+                        Consigliatissimo."</p>
+                    <footer class="font-semibold text-sm text-secondary-dark">— Laura S., Responsabile Marketing Eventi
+                    </footer>
+                </blockquote>
+
+                <blockquote class="bg-white p-8 rounded-xl shadow-lg border-l-4 border-accent-yellow">
+                    <p class="italic text-gray-700 mb-4">"Il prezzo era la mia preoccupazione principale. Con il
+                        noleggio a lungo termine per il nostro ufficio, abbiamo un ambiente più salubre e bello, ma il
+                        costo è infinitamente più gestibile che comprare. La possibilità di cambiare le piante
+                        stagionalmente è un enorme plus!"</p>
+                    <footer class="font-semibold text-sm text-secondary-dark">— Marco T., Titolare di Coworking Space
+                    </footer>
+                </blockquote>
+            </div>
+        </section>
+
+        <!-- Call to Action (CTA) Finale e Form di Contatto -->
+        <section class="py-16 md:py-24 px-6 lg:px-8 bg-primary-green rounded-t-3xl text-white">
+            <!-- Logica Tecnica: ID per l'ancora del CTA iniziale e attributi WCAG per l'accessibilità del form -->
+            <h2 class="text-4xl font-extrabold text-center mb-4" id="contact-form">
+                Inizia la Tua Trasformazione Green Oggi
+            </h2>
+            <p class="text-xl text-center mb-12 max-w-3xl mx-auto">
+                Descrivi la tua esigenza: evento, ufficio o set. Ti invieremo un preventivo su misura e senza impegno.
+            </p>
+
+            <div class="max-w-xl mx-auto bg-white p-8 sm:p-10 rounded-2xl shadow-2xl">
+
+                <!-- Messaggio di successo nascosto -->
+                <div id="success-message" role="alert"
+                    class="hidden p-4 mb-4 text-sm text-green-700 bg-green-100 rounded-lg dark:bg-green-200 dark:text-green-800">
+                    <!-- Messaggio di conferma dinamico inserito da JS -->
+                </div>
+
+                <form onsubmit="handleSubmit(event)" aria-labelledby="contact-form" class="space-y-6">
+                    <div>
+                        <label for="name" class="block text-sm font-medium text-gray-700 mb-1">Nome e Cognome / Nome
+                            Azienda *</label>
+                        <input type="text" id="name" name="name" required
+                            class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-primary-green focus:border-primary-green transition duration-150 text-secondary-dark"
+                            aria-required="true" placeholder="Es. Mario Rossi o Fioritura Srl">
+                    </div>
+
+                    <div>
+                        <label for="email" class="block text-sm font-medium text-gray-700 mb-1">Indirizzo E-mail
+                            *</label>
+                        <input type="email" id="email" name="email" required
+                            class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-primary-green focus:border-primary-green transition duration-150 text-secondary-dark"
+                            aria-required="true" placeholder="nome@esempio.it">
+                    </div>
+
+                    <div>
+                        <label for="plant_preference" class="block text-sm font-medium text-gray-700 mb-1">Piante di Tuo
+                            Interesse (ComboBox)</label>
+                        <select id="plant_preference" name="plant_preference"
+                            class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-primary-green focus:border-primary-green transition duration-150 text-secondary-dark">
+                            <option value="Eventi (Matrimoni, Fiere)">Eventi (Matrimoni, Fiere)</option>
+                            <option value="Ufficio / Spazi Lavoro">Ufficio / Spazi Lavoro</option>
+                            <option value="Grandi Piante da Interno (Ficus, Monstera)">Grandi Piante da Interno (Ficus,
+                                Monstera)</option>
+                            <option value="Piante Fiorite Stagionali">Piante Fiorite Stagionali</option>
+                            <option value="Set Fotografici / Allestimenti Brevi">Set Fotografici / Allestimenti Brevi
+                            </option>
+                            <option value="Non so ancora, ho bisogno di consulenza">Non so ancora, ho bisogno di
+                                consulenza</option>
+                        </select>
+                    </div>
+
+                    <button type="submit"
+                        class="w-full px-4 py-3 bg-accent-yellow text-secondary-dark font-bold text-lg rounded-lg hover:bg-yellow-400 transition duration-300 shadow-md">
+                        Invia la Tua Richiesta Ora
+                    </button>
+
+                    <!-- Link al fiorista partner (simulato) -->
+                    <p class="text-center text-xs text-gray-500 mt-4">
+                        Il tuo noleggio sarà gestito dal fiorista partner più vicino a te.
+                    </p>
+                </form>
+            </div>
+        </section>
+
+        <!-- Footer -->
+        <footer class="py-8 px-6 lg:px-8 text-center text-sm text-gray-500 border-t border-gray-200">
+            <p>&copy; 2025 NoleggioPiante Hub | Soluzioni Green per un Futuro Sostenibile. | <a href="#"
+                    class="hover:text-primary-green">Privacy Policy</a></p>
+        </footer>
+
+    </div>
+</body>
+
+</html>
