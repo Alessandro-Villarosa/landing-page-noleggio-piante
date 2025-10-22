@@ -36,24 +36,33 @@
             }
         }
 
-        // Funzione di gestione del submit
-        function handleSubmit(event) {
-            event.preventDefault();
-            const form = event.target;
-            const name = form.elements.name.value;
-            const email = form.elements.email.value;
-            const plant = form.elements.plant_preference.value;
-
+        /**
+         * FUNZIONE AGGIORNATA
+         * Controlla se il modulo è stato inviato con successo (grazie al reindirizzamento di GetResponse)
+         * e mostra il messaggio di successo.
+         */
+        window.onload = function () {
+            const params = new URLSearchParams(window.location.search);
+            const isSuccess = params.get('success');
             const messageBox = document.getElementById('success-message');
-            messageBox.textContent = `Grazie, ${name}! Abbiamo ricevuto la tua richiesta per "${plant}". Ti contatteremo a breve all'indirizzo ${email}.`;
-            messageBox.classList.remove('hidden');
-            form.reset();
 
-            // Nascondi il messaggio dopo 5 secondi
-            setTimeout(() => {
-                messageBox.classList.add('hidden');
-            }, 5000);
-        }
+            if (isSuccess === 'true') {
+                // Rimuoviamo il vecchio messaggio di successo statico e lo rendiamo più generico
+                messageBox.textContent = `Grazie! La tua richiesta è stata inviata con successo. Ti contatteremo a breve.`;
+                messageBox.classList.remove('hidden');
+
+                // Puliamo l'URL per rimuovere il parametro di successo senza ricaricare la pagina
+                // Questo impedisce che il messaggio riappaia al refresh
+                history.replaceState(null, '', window.location.pathname + window.location.hash);
+
+                // Nascondi il messaggio dopo 5 secondi
+                setTimeout(() => {
+                    messageBox.classList.add('hidden');
+                }, 5000);
+            }
+        };
+
+        // Rimuoviamo la vecchia funzione handleSubmit(event) che intercettava l'invio
     </script>
 </head>
 
@@ -84,6 +93,7 @@
                 <div class="mt-12">
                     <div
                         class="bg-gray-200 rounded-2xl w-full h-64 md:h-96 flex items-center justify-center text-gray-500 border-4 border-primary-green border-dashed">
+                        <!-- Placeholder per Immagine Hero  -->
                     </div>
                 </div>
             </div>
@@ -199,6 +209,7 @@
                     <!-- Spazio per Immagine di Testimonianza -->
                     <div
                         class="bg-gray-200 rounded-lg w-full h-48 flex items-center justify-center text-gray-500 mt-8 border-2 border-gray-300">
+                        <!-- Placeholder per Testimonianza  -->
                     </div>
                 </div>
 
@@ -206,6 +217,7 @@
                 <div class="lg:w-1/2">
                     <div
                         class="bg-gray-200 rounded-2xl w-full h-80 md:h-96 flex items-center justify-center text-gray-500 border-4 border-primary-green border-dashed">
+                        <!-- Placeholder per Catalogo  -->
                     </div>
                 </div>
             </div>
@@ -215,7 +227,7 @@
         <section class="py-16 md:py-24 px-6 lg:px-8">
             <!-- Logica Tecnica: Tag H2 per il SEO, citazioni accessibili con `blockquote` -->
             <h2 class="text-3xl sm:text-4xl font-bold text-center mb-12 text-secondary-dark" id="recensioni">
-                Dicono di Noi: L'Esperienza Green dei Nostri Clienti
+                Dicono di Noi: L'Esperienza Green dei nostri clienti
             </h2>
 
             <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
@@ -244,7 +256,7 @@
         <section class="py-16 md:py-24 px-6 lg:px-8 bg-primary-green rounded-t-3xl text-white">
             <!-- Logica Tecnica: ID per l'ancora del CTA iniziale e attributi WCAG per l'accessibilità del form -->
             <h2 class="text-4xl font-extrabold text-center mb-4" id="contact-form">
-                Inizia la Tua Trasformazione Green Oggi
+                Inizia la tua trasformazione Green oggi
             </h2>
             <p class="text-xl text-center mb-12 max-w-3xl mx-auto">
                 Descrivi la tua esigenza: evento, ufficio o set. Ti invieremo un preventivo su misura e senza impegno.
@@ -252,40 +264,61 @@
 
             <div class="max-w-xl mx-auto bg-white p-8 sm:p-10 rounded-2xl shadow-2xl">
 
-                <!-- Messaggio di successo nascosto -->
+                <!-- Messaggio di successo nascosto (Verificato da JS on load dopo il reindirizzamento di GetResponse) -->
                 <div id="success-message" role="alert"
                     class="hidden p-4 mb-4 text-sm text-green-700 bg-green-100 rounded-lg dark:bg-green-200 dark:text-green-800">
                     <!-- Messaggio di conferma dinamico inserito da JS -->
                 </div>
 
-                <form onsubmit="handleSubmit(event)" aria-labelledby="contact-form" class="space-y-6">
+                <!--
+                    CODICE FORM CORRETTO
+                    - Rimossa la chiamata onsubmit JS per permettere l'invio POST a GetResponse.
+                    - Aggiunto il campo hidden 'return_url' per reindirizzare alla stessa pagina con un parametro di successo.
+                -->
+                <form aria-labelledby="contact-form" action="https://app.getresponse.com/add_subscriber.html"
+                    accept-charset="utf-8" method="post" class="space-y-6">
+
+                    <!-- Campo GetResponse ESSENZIALE: Token Campagna -->
+                    <input type="hidden" name="campaign_token" value="LvrWW" />
+
+                    <!-- Campo GetResponse AGGIUNTO: URL di Reindirizzamento in caso di successo -->
+                    <input type="hidden" name="return_url"
+                        value="https://noleggiopiante.github.io/index.html?success=true#contact-form" />
+                    <!-- Nota: Ho usato un placeholder di dominio, assicurati di usare l'URL ESATTO della tua landing page! -->
+
+                    <!-- Campo GetResponse FACOLTATIVO: URL in caso di errore (opzionale, ma utile) -->
+                    <!-- <input type="hidden" name="failure_url" value="https://noleggiopiante.github.io/index.html?error=true#contact-form" /> -->
+
                     <div>
                         <label for="name" class="block text-sm font-medium text-gray-700 mb-1">Nome e Cognome / Nome
                             Azienda *</label>
+                        <!-- GetResponse: campo 'name' -->
                         <input type="text" id="name" name="name" required
                             class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-primary-green focus:border-primary-green transition duration-150 text-secondary-dark"
-                            aria-required="true" placeholder="Es. Mario Rossi o Fioritura Srl">
+                            aria-required="true" placeholder="es.Mario Rossi o Fioritura Srl">
                     </div>
 
                     <div>
-                        <label for="email" class="block text-sm font-medium text-gray-700 mb-1">Indirizzo E-mail
+                        <label for="email" class="block text-sm font-medium text-gray-700 mb-1">Indirizzo e-mail
                             *</label>
+                        <!-- GetResponse: campo 'email' -->
                         <input type="email" id="email" name="email" required
                             class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-primary-green focus:border-primary-green transition duration-150 text-secondary-dark"
                             aria-required="true" placeholder="nome@esempio.it">
                     </div>
 
                     <div>
-                        <label for="plant_preference" class="block text-sm font-medium text-gray-700 mb-1">Piante di Tuo
-                            Interesse (ComboBox)</label>
-                        <select id="plant_preference" name="plant_preference"
+                        <label name= "custom_selezione" for="custom_selezione" class="block text-sm font-medium text-gray-700 mb-1">Piante di tuo
+                            interesse</label>
+                        <!-- GetResponse: Campo personalizzato. Assicurati che 'piante_di_tuo_interesse' sia l'ID esatto del campo personalizzato su GetResponse! -->
+                        <select id="custom_selezione" name="custom_selezione"
                             class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-primary-green focus:border-primary-green transition duration-150 text-secondary-dark">
                             <option value="Eventi (Matrimoni, Fiere)">Eventi (Matrimoni, Fiere)</option>
-                            <option value="Ufficio / Spazi Lavoro">Ufficio / Spazi Lavoro</option>
-                            <option value="Grandi Piante da Interno (Ficus, Monstera)">Grandi Piante da Interno (Ficus,
-                                Monstera)</option>
-                            <option value="Piante Fiorite Stagionali">Piante Fiorite Stagionali</option>
-                            <option value="Set Fotografici / Allestimenti Brevi">Set Fotografici / Allestimenti Brevi
+                            <option value="Ufficio / Spazi Lavoro">Ufficio / Spazi lavoro</option>
+                            <option value="Grandi Piante da Interno (Ficus, Monstera)">Grandi piante da interno (Ficus,
+                                Monstera...)</option>
+                            <option value="Piante Fiorite Stagionali">Piante fiorite stagionali</option>
+                            <option value="Set Fotografici / Allestimenti Brevi">Set fotografici / Allestimenti brevi
                             </option>
                             <option value="Non so ancora, ho bisogno di consulenza">Non so ancora, ho bisogno di
                                 consulenza</option>
@@ -294,7 +327,7 @@
 
                     <button type="submit"
                         class="w-full px-4 py-3 bg-accent-yellow text-secondary-dark font-bold text-lg rounded-lg hover:bg-yellow-400 transition duration-300 shadow-md">
-                        Invia la Tua Richiesta Ora
+                        Invia la tua richiesta ora
                     </button>
 
                     <!-- Link al fiorista partner (simulato) -->
@@ -307,7 +340,7 @@
 
         <!-- Footer -->
         <footer class="py-8 px-6 lg:px-8 text-center text-sm text-gray-500 border-t border-gray-200">
-            <p>&copy; 2025 NoleggioPiante Hub | Soluzioni Green per un Futuro Sostenibile. | <a href="#"
+            <p>&copy; 2025 NoleggioPiante Hub | Soluzioni Green per un futuro sostenibile. | <a href="#"
                     class="hover:text-primary-green">Privacy Policy</a></p>
         </footer>
 
