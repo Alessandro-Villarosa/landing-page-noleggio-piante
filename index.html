@@ -282,12 +282,12 @@
                     <input type="hidden" name="campaign_token" value="LvrWW" />
 
                     <!-- Campo GetResponse AGGIUNTO: URL di Reindirizzamento in caso di successo -->
-                    <input type="hidden" name="return_url"
-                        value="https://noleggiopiante.github.io/index.html?success=true#contact-form" />
+                    <input type="hidden" name="thankyou_url"
+                        value="http://127.0.0.1:5500/thankyou.html" />
                     <!-- Nota: Ho usato un placeholder di dominio, assicurati di usare l'URL ESATTO della tua landing page! -->
 
                     <!-- Campo GetResponse FACOLTATIVO: URL in caso di errore (opzionale, ma utile) -->
-                    <!-- <input type="hidden" name="failure_url" value="https://noleggiopiante.github.io/index.html?error=true#contact-form" /> -->
+                    <input type="hidden" name="failure_url" value="https://noleggiopiante.github.io/index.html?error=true#contact-form" />
 
                     <div>
                         <label for="name" class="block text-sm font-medium text-gray-700 mb-1">Nome e Cognome / Nome
@@ -325,7 +325,7 @@
                         </select>
                     </div>
 
-                    <button type="submit"
+                    <button type="submit" href="thankyou.html" 
                         class="w-full px-4 py-3 bg-accent-yellow text-secondary-dark font-bold text-lg rounded-lg hover:bg-yellow-400 transition duration-300 shadow-md">
                         Invia la tua richiesta ora
                     </button>
@@ -340,7 +340,7 @@
 
         <!-- Footer -->
         <footer class="py-8 px-6 lg:px-8 text-center text-sm text-gray-500 border-t border-gray-200">
-            <p>&copy; 2025 NoleggioPiante Hub | Soluzioni Green per un futuro sostenibile. | <a href="#"
+            <p>&copy; 2025 NoleggioPiante Hub | Soluzioni Green per un futuro sostenibile | <a href="#"
                     class="hover:text-primary-green">Privacy Policy</a></p>
         </footer>
 

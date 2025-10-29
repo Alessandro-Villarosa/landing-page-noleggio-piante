@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="it">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Grazie per la tua richiesta | Noleggio Piante</title>
+    <!-- Precaricamento Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Configurazione per utilizzare il font Inter e colori personalizzati -->
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap');
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #f4f8f4;
+            /* Stesso sfondo verde-grigio della landing page */
+        }
+    </style>
+    <script>
+        // Configurazione Tailwind CSS per mantenere gli stessi colori
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'primary-green': '#10b981', /* Smeraldo chiaro - colore principale */
+                        'secondary-dark': '#0f483c', /* Verde scuro per testo importante */
+                        'accent-yellow': '#facc15', /* Giallo acceso per CTA */
+                    },
+                }
+            }
+        }
+    </script>
+</head>
+
+<body class="text-secondary-dark antialiased min-h-screen flex items-center justify-center p-4">
+
+    <!-- Contenitore Centrale (simulazione di un'area contenuta come la landing page) -->
+    <div class="max-w-xl w-full mx-auto">
+
+        <!-- Box di Ringraziamento -->
+        <div class="bg-white p-8 sm:p-12 rounded-3xl shadow-2xl text-center border-t-8 border-primary-green">
+
+            <!-- Icona di Successo (SVG) -->
+            <div class="mb-6">
+                <svg class="w-16 h-16 inline-block text-primary-green" fill="none" stroke="currentColor"
+                    viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                        d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                </svg>
+            </div>
+
+            <h1 class="text-3xl sm:text-4xl font-extrabold text-secondary-dark mb-4">
+                Grazie! Richiesta inviata con successo.
+            </h1>
+
+            <p class="text-lg text-gray-700 mb-8">
+                Abbiamo ricevuto le tue preferenze. Il nostro fiorista partner più vicino a te sta già preparando un
+                preventivo personalizzato e senza impegno.
+            </p>
+
+            <div class="p-4 sm:p-6 bg-green-50 rounded-xl mb-10 border-l-4 border-accent-yellow">
+                <p class="font-semibold text-secondary-dark">
+                    Cosa succede ora?
+                </p>
+                <p class="text-sm text-gray-600 mt-1">
+                    Sarai ricontattato via email entro 24 ore lavorative. Controlla anche la cartella spam!
+                </p>
+            </div>
+
+            <!-- Bottone per tornare alla Landing Page -->
+            <a href="index.html"
+                class="inline-block w-full sm:w-auto px-10 py-3 bg-accent-yellow text-secondary-dark font-bold text-lg rounded-xl hover:bg-yellow-400 transition duration-300 shadow-lg transform hover:scale-[1.02]">
+                Torna alla homepage
+            </a>
+
+        </div>
+
+        <!-- Footer minimo per coerenza -->
+        <footer class="py-4 text-center text-sm text-gray-500 mt-6">
+            <p>&copy; 2025 NoleggioPiante Hub | Soluzioni Green per un futuro sostenibile</p>
+        </footer>
+
+    </div>
+</body>
+
+</html>
